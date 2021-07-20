@@ -11,7 +11,7 @@ A web-application in which users can interact with each other through rooms.
 ## Clone the Repository
 * Open a terminal and run the following command
 
-  `git clone https://github.com/Saketh-77/abusive-text-detector.git`
+  `git clone https://github.com/sowmya-dev/ChatHouse.git`
   
 ## Install the Dependencies
 * From your terminal, go inside the abusive-text-detector directory
