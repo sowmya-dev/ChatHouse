@@ -1,5 +1,5 @@
-# Abusive-Text-Detector
-A web-application which can detect abusive texts and gives the user ability to block the other user.
+# ChatHouse
+A web-application in which users can interact with each other through rooms.
 
 # Set-Up Work Environment
 ## Node.js 
