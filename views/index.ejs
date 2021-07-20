@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Welcome</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div>
+				<% if (rooms.length === 0){ %>
+					<div class="m-r-250 m-t-100" style="width: 20em;height:30em;">
+						<h3>No Rooms Are Available</h3>
+						<button class="create-room-btn login100-form-btn m-t-20">Click to Create </button>
+						<div class="create-room" hidden>
+							<form action="/create-room" method="POST">
+								<div class="wrap-input100 validate-input m-t-40 m-b-35">
+									<input class="input100" type="text" placeholder="Enter Room Name" class="" name="room_name_create">
+								</div>
+								<button class="create-btn login100-form-btn m-t-20">Create</button>
+							</form>
+							<button class="cancel-btn login100-form-btn m-t-20">Cancel</button>
+						</div>
+					</div>
+				<% }else{ %>
+						<div style="margin-left:-200px;margin-top:-200px;width: 15em;">
+							<button class="create-room-btn login100-form-btn m-t-20">Click to Create Room</button>
+							<div class="create-room" hidden style="position: absolute;">
+								<form action="/create-room" method="POST">
+									<div class="wrap-input100 validate-input m-t-40 m-b-35">
+										<input class="input100" type="text" placeholder="Enter Room Name" class="" name="room_name_create" required="">
+									</div>
+									<button class="create-btn login100-form-btn m-t-20">Create</button>
+								</form>
+								<button class="cancel-btn login100-form-btn m-t-20">Cancel</button>
+							</div>
+						</div>
+	
+						<div class="m-l-150 m-r-50" style="margin-top:-90px;width: 20em;">
+							<h3 class="" for="rooms">Available Rooms</h3>
+		
+							<select class="login100-form-btn" name="rooms" id="rooms" style="margin-left: -10px">
+							<% rooms.forEach( room => { %>
+								<option value=""><%= room.name %></option>
+							<% }); %>
+							</select>
+						</div>
+				<% } %>
+			</div>
+			<div class="wrap-login100 p-t-85 p-b-20">
+
+				<form class="login100-form validate-form" action="/room" method="POST">
+					
+					<!-- Flash Message Container -->
+					<div class="jumbotron jumbotron-fluid" id="flash-message">
+						<div class="container">
+						  <p class="lead"><%= message %></p>
+						</div>
+					</div>
+
+					<span class="login100-form-title p-b-70">
+						Welcome to ChatHouse
+					
+                    <div class="wrap-input100 validate-input m-t-85 m-b-35">
+                        <input class="input100" type="text" placeholder="Enter your Name" class="username" name="username" required="">
+                    </div>
+					<div class="wrap-input100 validate-input m-t-85 m-b-35">
+						<input class="input100" type="text" placeholder="Enter Room Name" class="roomname" name="roomname" required="">
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Enter
+						</button>
+					</div>
+				</form>
+				<a href="/logout">Logout</a>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous">
+	</script>
+	<script>
+		$(".create-room-btn").on("click",()=>{
+			$("div.create-room").attr("hidden",false);
+			
+			$("button.create-room-btn").attr("disabled",true);
+		});
+
+		$(".cancel-btn").on("click",()=>{
+			$(".create-room").attr("hidden",true);
+			$("button.create-room-btn").prop("disabled",false);
+		});
+	</script>
+	<script src="js/displayFlashMessage.js"></script>
+</body>
+</html>

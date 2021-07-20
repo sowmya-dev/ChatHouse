@@ -1,0 +1,35 @@
+{
+  "name": "abusive-text-detector",
+  "version": "1.0.0",
+  "description": "A web-application which can detect abusive texts and gives the user ability to block the other user.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saketh-77/abusive-text-detector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saketh-77/abusive-text-detector/issues"
+  },
+  "homepage": "https://github.com/Saketh-77/abusive-text-detector#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2",
+    "msg91": "0.0.6",
+    "naughty-words": "^1.2.0",
+    "node-nlp": "^4.22.1",
+    "nodemon": "^2.0.12",
+    "springedge": "^1.0.6",
+    "unirest": "^0.6.0",
+    "socket.io": "^2.3.1"
+  }
+}
